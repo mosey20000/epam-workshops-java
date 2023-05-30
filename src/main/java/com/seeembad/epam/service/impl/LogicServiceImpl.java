@@ -2,29 +2,31 @@ package com.seeembad.epam.service.impl;
 
 import com.seeembad.epam.domain.result.CalculationsResult;
 import com.seeembad.epam.repository.CalculatedCacheRepository;
-import com.seeembad.epam.repository.CalculationsResultRepository;
 import com.seeembad.epam.service.CalculationResultService;
 import com.seeembad.epam.service.LogicService;
 import com.seeembad.epam.web.dto.AggregatingCalculationDTO;
 import com.seeembad.epam.web.dto.RequestCalculationDTO;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
+import lombok.experimental.FieldDefaults;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
+@Value
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class LogicServiceImpl implements LogicService {
 
-    private final Logger logger = LogManager.getLogger();
-    private final CalculatedCacheRepository cacheRepository;
-    private final CalculationResultService calculationResultService;
+    Logger logger = LogManager.getLogger();
+    CalculatedCacheRepository cacheRepository;
+    CalculationResultService calculationResultService;
 
     @Override
     public CalculationsResult checkRequestedValue(RequestCalculationDTO dto) {

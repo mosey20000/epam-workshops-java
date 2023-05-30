@@ -21,7 +21,5 @@ public class CalculationsResult {
         this.isPrime = isPrime;
     }
 
-    public CalculationsResult() {
-
-    }
+    public CalculationsResult() {}
 }
